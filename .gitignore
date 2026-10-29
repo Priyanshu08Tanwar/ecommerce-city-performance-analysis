@@ -1,0 +1,11 @@
+#Raw dataset files
+Data/Raw/
+
+#Power BI temporary and backup files
+*.tmp
+*.bak
+
+#OS-generated files
+Thumbs.db
+.DS_Store
+desktop.ini
