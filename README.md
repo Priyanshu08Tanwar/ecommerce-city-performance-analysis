@@ -2,87 +2,93 @@
 
 ## Project Overview
 
-This project analyzes e-commerce data to understand sales performance, product categories, geographic trends, delivery reliability, and customer satisfaction.
+This project analyzes the Brazilian E-Commerce Public Dataset by Olist using **MySQL and Power BI**.
 
-Using SQL for data analysis and Power BI for visualization, the project aims to turn raw transactional data into actionable business insights.
+The objective is to understand e-commerce performance across cities and product categories, evaluate delivery performance, and investigate how delivery delays relate to customer satisfaction.
+
+The analysis combines SQL-based data exploration with an interactive Power BI dashboard.
 
 ## Tools & Technologies
 
-- **MySQL** — data querying, analysis, joins, aggregations, and business metrics
-- **Microsoft Power BI** — interactive dashboards and data visualization
-- **Git & GitHub** — version control and project documentation
+- **MySQL:** Data exploration, SQL queries, aggregations, and analysis
+- **Power BI:** Data visualization and dashboard development
+- **Git & GitHub:** Version control and project documentation
 
 ## Dataset
 
-This project uses the **Brazilian E-Commerce Public Dataset by Olist**, containing order, customer, product, seller, payment, and review information.
+The project uses the [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
-The raw dataset is excluded from version control to keep the GitHub repository lightweight.
+The dataset contains information about orders, customers, products, sellers, payments, reviews, and delivery dates.
+
+Raw dataset files are excluded from this repository.
 
 ## Business Questions
 
-The analysis explores questions such as:
+The analysis focuses on the following questions:
 
-1. Which cities and product categories generate the most revenue?
-2. How does sales performance vary over time?
-3. Which product categories perform best and worst?
-4. How frequently are orders delivered late?
-5. Which customer and seller locations have higher late-delivery rates?
-6. How does delivery performance relate to customer review scores?
-7. What business opportunities can be identified from these patterns?
+1. Which cities generate the highest product revenue?
+2. Which product categories contribute most to revenue?
+3. How does revenue change over time?
+4. What proportion of delivered orders arrive late?
+5. Does late delivery relate to lower customer review scores?
+6. How does delivery performance vary across customer and seller locations?
 
-## Key Findings So Far
+## Key Findings
 
-- **Late-delivery rate:** 8.11% among delivered orders with available delivery and estimated delivery dates.
-- **Customer satisfaction:** Orders delivered late have a lower average review score than orders delivered early or on time.
-- **Delivery analysis:** Monthly trends and geographic comparisons are being used to investigate delivery performance.
+- **99,441 orders** are present in the orders dataset.
+- **7,826 orders** were delivered late among 96,470 delivered orders with both actual and estimated delivery timestamps available.
+- The late-delivery rate for this eligible group was **8.11%**.
+- Late-delivered orders had an average review score of **2.57**, compared with **4.29** for orders delivered early or on time.
+- São Paulo generated the highest product revenue among the cities shown in the Top 10 city analysis, followed by Rio de Janeiro.
 
-*Findings will be expanded as the analysis and dashboard develop.*
+These findings indicate an association between late delivery and lower customer review scores. They do not, by themselves, establish causation.
 
-## Project Structure
+## Power BI Dashboard
+
+The dashboard summarizes order volume, delivery performance, customer satisfaction, and city-level product revenue.
+
+![E-Commerce Delivery and Customer Satisfaction Dashboard](Reports/01_Ecommerce_performance_analysis.png)
+
+### Dashboard Components
+
+- Total Orders KPI
+- Late Delivery Rate KPI
+- Monthly Late Orders trend
+- Average Review Score by Delivery Performance
+- Top 10 Cities by Product Revenue
+
+## Repository Structure
 
 ```text
 ecommerce-city-performance-analysis/
+│
 ├── Dashboard/
 │   └── Ecommerce_performance_analysis.pbix
+│
 ├── Data/
-│   └── Raw/                  # Excluded from Git
+│   └── Raw/                 # Excluded from Git
+│
 ├── Docs/
+│
 ├── Reports/
-├── SQL/
-│   ├── 00_create_database.sql
-│   ├── 01_import_orders.sql
-│   ├── 02_import_customers.sql
-│   ├── 03_import_order_items.sql
-│   ├── 04_import_products.sql
-│   ├── 05_import_sellers.sql
-│   ├── 06_import_order_payments.sql
-│   ├── 07_import_order_reviews.sql
-│   ├── 08_import_category_translation.sql
-│   ├── 09_business_analysis.sql
-│   ├── 10_late_delivery_analysis.sql
-│   ├── 11_review_data_quality.sql
-│   └── 12_create_city_revenue_view.sql
+│   └── 01_Ecommerce_performance_analysis.png
+│
+├── SQL/                     # SQL analysis scripts
+│
 ├── .gitignore
 └── README.md
 ```
 
-## Dashboard Preview
-
-The Power BI dashboard summarizes order volume, delivery performance, and customer satisfaction. A dashboard screenshot will be added here as the report develops.
-
 ## How to Explore the Project
 
-1. Browse the SQL scripts in the `SQL/` folder to understand the analysis.
-2. Open the Power BI report in the `Dashboard/` folder using Microsoft Power BI Desktop.
-3. Review the dashboard and findings to understand the business implications.
+1. Review the SQL scripts in the `SQL/` folder to understand the data analysis.
+2. Open `Dashboard/Ecommerce_performance_analysis.pbix` using Power BI Desktop.
+3. Review the dashboard visuals and key findings.
 
-## Future Improvements
+The Power BI report may require a local MySQL connection and access to the source dataset to refresh its data.
 
-- Expand city and product category analysis.
-- Improve dashboard layout, filtering, and interactive exploration.
-- Add recommendations supported by the analysis.
-- Document additional findings and data-quality limitations.
+## Project Outcome
 
----
+This project demonstrates practical use of SQL for business analysis, data validation, aggregation, and investigation of business problems, followed by visualization of key findings in Power BI.
 
-**Project status:** In progress
+It documents the workflow from raw e-commerce data to analytical insights and an interactive dashboard.
